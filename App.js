@@ -13,72 +13,86 @@ import {
   ScrollView,
   View,
   Text,
-  StatusBar,
+  StatusBar, Image,
+  Dimensions
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import './src/locales';
+import IMAGES_NAME from './src/assets';
 
-const App: () => React$Node = () => {
+import {
+  Colors,
+} from 'react-native/Libraries/NewAppScreen';
+import ButtonControl from './src/libs/button-control';
+import SwiperControl from './src/libs/swiper';
+
+const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
+      <SafeAreaView style={styles.container}>
+        <View>
+          <View style={styles.logo}>
+            <Image source={IMAGES_NAME.LOGO}/>
           </View>
-        </ScrollView>
+          <View>
+            <Text style={styles.firstText}>
+              This is Health UX Kit,{"\n"}Welcome!
+            </Text>
+          </View>
+          <View >
+            <Text style={styles.secondText}>
+            A health vertical UI kit made with{"\n"}
+            love for Adobe XD
+            </Text>
+          </View>
+        </View>
+        <View style={{top: 600}}>
+          <SwiperControl />
+        </View>
+        <View style={{top: 640}}>
+          <ButtonControl/>
+        </View>
+        {/* <View style={styles.container}>
+          <View>
+            <Image style={{height:HEIGHT-50,with: 100, position:'absolute'}}>
+              11
+            </Image>
+            <Text style={}>cnhh</Text>
+          </View>
+
+        </View> */}
       </SafeAreaView>
     </>
   );
 };
-
+// const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 const styles = StyleSheet.create({
+  container:{
+    flex:1,
+  },
   scrollView: {
     backgroundColor: Colors.lighter,
   },
   engine: {
     position: 'absolute',
     right: 0,
+  },
+  logo: {
+    top:30,
+    alignItems: 'center',
+  },
+  firstText: {
+    top:77,
+    color: "#205072",
+    fontSize: 21,
+    textAlign: "center",
+  },
+  secondText: {
+    top:111,
+    fontSize: 13,
+    color: "#68B2A0",
+    textAlign: "center"
   },
   body: {
     backgroundColor: Colors.white,
