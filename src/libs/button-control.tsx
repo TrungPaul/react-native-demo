@@ -8,8 +8,8 @@ const ButtonControl = () => (
       title="Press me"
       onPress={() => Alert.alert('Simple Button pressed')}
     /> */}
-    <Image source={IMAGES_NAME.IMAGE_BUTTON} width={WIDTH} height={HEIGHT}/>
-    <Text>
+    <Image source={IMAGES_NAME.IMAGE_BUTTON} width={WIDTH} height={HEIGHT} style={styles.btn}/>
+    <Text style={styles.text}>
       GET STARTED
     </Text>
   </View>
@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
     position: "absolute"
   },
   text: {
-    position: "absolute"
+    position: "absolute",
+    color: 'white'
   }
 });
 
