@@ -1,20 +1,17 @@
 import React from 'react';
-import { StyleSheet, Button, Alert, View, Image, Dimensions, Text } from 'react-native';
-import IMAGES_NAME from '../assets';
-
-const ButtonControl = () => (
-  <View style={styles.container}>
-    {/* <Button
-      title="Press me"
-      onPress={() => Alert.alert('Simple Button pressed')}
-    /> */}
-    <Image source={IMAGES_NAME.IMAGE_BUTTON} width={WIDTH} height={HEIGHT} style={styles.btn}/>
-    <Text style={styles.text}>
-      GET STARTED
-    </Text>
+import { StyleSheet, Button, Alert, View, Image, Dimensions, Text, Touchable } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+interface ButtonlProps {
+  label?: string;
+}
+const ButtonControl = ({label}: ButtonlProps) => (
+  <View style={styles.btn}>
+      <Text style={styles.text}>
+        {label}
+      </Text>
   </View>
 );
-const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
+// const {width: WIDTH, height: HEIGHT} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
@@ -23,11 +20,18 @@ const styles = StyleSheet.create({
     justifyContent:'center',
   },
   btn: {
-    position: "absolute"
+    backgroundColor: '#7BE495',
+    borderRadius:40,
+    color: 'white',
+    width: 320,
+    height: 50,
+    padding: 7
   },
   text: {
-    position: "absolute",
-    color: 'white'
+    textAlign: "center",
+    padding: 10,
+    color: 'white',
+    fontWeight: '600'
   }
 });
 

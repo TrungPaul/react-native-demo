@@ -5,6 +5,7 @@ import {
   SafeAreaView,
   StyleSheet,
   Text,
+  Touchable,
   View,
 } from 'react-native';
 
@@ -13,6 +14,7 @@ import React from 'react';
 import SwiperControl from '../libs/swiper';
 import ButtonControl from '../libs/button-control';
 import IMAGES_NAME from '../assets';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const WelcomeScreen = ({navigation}: any) => {
   return (
@@ -22,8 +24,7 @@ const WelcomeScreen = ({navigation}: any) => {
           <View style={{alignItems: 'center'}}>
             <Image source={IMAGES_NAME.LOGO} />
             <Text style={styles.firstText}>
-              {/* This is Health UX Kit,{'\n'}Welcome! */}
-              This is Wellcome Screen
+              This is Home Screen
             </Text>
             <Text style={styles.secondText}>
               A health vertical UI kit made with{'\n'}
@@ -38,6 +39,13 @@ const WelcomeScreen = ({navigation}: any) => {
 
         <View style={{height: 150, alignItems: 'center'}}>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <ButtonControl label={'GET STARTED'}/>
+            <Text style={styles.thirdText}>
+              Already have an account? 
+              <Text style={styles.loginText}>
+                Sign In
+              </Text>
+            </Text>
           </View>
         </View>
       </View>
@@ -69,6 +77,15 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: '#68B2A0',
     textAlign: 'center',
+  },
+  thirdText: {
+    marginTop: 30,
+    fontSize: 13,
+    color: '#68B2A0',
+    textAlign: 'center',
+  },
+  loginText:{
+    color: 'gray'
   },
   highlight: {
     fontWeight: '700',

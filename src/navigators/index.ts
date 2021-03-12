@@ -1,1 +1,1 @@
-export {default as HomeStackNavigation} from './HomeStackNavigation';
+export {default as Router} from './Router';
