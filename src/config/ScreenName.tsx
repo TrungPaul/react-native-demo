@@ -2,6 +2,7 @@ const SCREEN_NAME = {
   //App Screen
   HOME_SCREEN: 'Home',
   WELCOME_SCREEN: 'Welcome',
+  VERIFY_SCREEN: 'Verify',
   CHATS_SCREEN: 'Chats',
   CART_SCREEN: 'Cart',
   SETTINGS_SCREEN: 'Settings',

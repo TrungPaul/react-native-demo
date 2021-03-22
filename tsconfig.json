@@ -17,6 +17,7 @@
     "metro.config.js",
     "jest.config.js"
   ],
+  "baseUrl": ".",
   "paths": {
     "@/locales": ["./src/locales"]
   }

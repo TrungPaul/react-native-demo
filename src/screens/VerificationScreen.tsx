@@ -2,6 +2,7 @@
 import {
   Dimensions,
   Image,
+  KeyboardAvoidingView,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -10,45 +11,45 @@ import {
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import React from 'react';
-import SwiperControl from '../libs/swiper';
-import ButtonControl from '../libs/button-control';
 import IMAGES_NAME from '../assets';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import ButtonControl from '../libs/button-control';
+import Verification from '../libs/verification';
 
-const WelcomeScreen = ({navigation}: any) => {
+const VerificationScreen = ({navigation}: any) => {
   return (
     <SafeAreaView style={styles.container}>
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior="padding"
+      >
       <View style={{flex: 1}}>
         <View style={{flex: 1, alignItems: 'center'}}>
           <View style={{alignItems: 'center'}}>
             <Image source={IMAGES_NAME.LOGO} />
             <Text style={styles.firstText}>
-              This is welcomes Screen
-            </Text>
-            <Text style={styles.secondText}>
-              A health vertical UI kit made with{'\n'}
-              love for Adobe XD
+            Verify your number with{'\n'}
+            codes sent to you
             </Text>
           </View>
-          <View style={{marginTop: 30, height: HEIGHT / 2}}>
-            <SwiperControl />
+          <View style={{marginTop: 50, height: HEIGHT / 2}}>
+            <Verification />
+            <Text style={styles.thirdText}>
+            I didn’t receive the code, <Text style={styles.loginText}> Resend</Text>
+            </Text>
           </View>
         </View>
-        <View style={{height: 150, alignItems: 'center'}}>
+
+        <View style={{height: 100, alignItems: 'center'}}>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Login")}>
-            <ButtonControl label={'GET STARTED'}/>
-            </TouchableOpacity>
-            <Text style={styles.thirdText}>
-              Already have an account? 
-              <Text style={styles.loginText}>
-                Sign In
-              </Text>
-            </Text>
+          onPress={() => navigation.navigate("Notifications")}>
+            <ButtonControl label={'CONTINUE'}/>
+          </TouchableOpacity>
           </View>
         </View>
       </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 };
@@ -72,12 +73,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: '300',
   },
-  secondText: {
-    marginTop: 50,
-    fontSize: 13,
-    color: '#68B2A0',
-    textAlign: 'center',
-  },
   thirdText: {
     marginTop: 30,
     fontSize: 13,
@@ -87,9 +82,6 @@ const styles = StyleSheet.create({
   loginText:{
     color: 'gray'
   },
-  highlight: {
-    fontWeight: '700',
-  },
 });
 
-export default WelcomeScreen;
+export default VerificationScreen;
