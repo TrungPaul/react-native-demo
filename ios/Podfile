@@ -8,6 +8,7 @@ target 'smallProject' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+
   target 'smallProjectTests' do
     inherit! :complete
     # Pods for testing
